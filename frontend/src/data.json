@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Homemade Fudgy Brownie",
+    "Image": "/brownie.jpg",
+    "Description": "The ultimate Homemade Fudgy Brownie - super chocolatey without being overly sweet!"
+  },
+
+  {
+    "Name": "Classic Homemade Cheesecake",
+    "Image": "/cheesecake.jpg",
+    "Description": "Extra Creamy, Classic Homemade Cheesecake!"
+  },
+
+  {
+    "Name": "Creamy Homemade Creme Brulee",
+    "Image": "/creme_brulee.jpg",
+    "Description": "A Rich and Creamy Custard topped with a delicate caramelized layer."
+  }
+]
