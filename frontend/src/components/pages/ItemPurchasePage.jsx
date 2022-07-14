@@ -1,6 +1,6 @@
 import React from "react";
 import "../../App.css";
 
-export default function Cart() {
-  return <h1 className="cart">CART</h1>;
+export default function ItemPurchase() {
+  return <h1 className="item">Item Purchase</h1>;
 }
