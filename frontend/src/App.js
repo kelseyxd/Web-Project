@@ -20,6 +20,7 @@ function App() {
           <Route path="/orders" component={Orders} />
           <Route path="/sign-up" component={Login} />
         </Switch>
+        <Footer />
       </Router>
     </>
   );
