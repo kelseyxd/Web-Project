@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
@@ -18,9 +18,9 @@ function Navbar() {
     }
   };
 
-  //   useEffect(() => {
-  //     showButton();
-  //   }, []);
+  useEffect(() => {
+    showButton();
+  }, []);
 
   window.addEventListener("resize", showButton);
 
@@ -29,7 +29,10 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo">
-            <text style={{ fontFamily: "Times New Roman" }}>DessertBar</text>
+            <text style={{ fontFamily: "Times New Roman" }}>
+              DessertBar
+              <i class="fab fa-typo3" />
+            </text>
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -65,7 +68,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+          {button && <Button buttonStyle="btn--outline">SIGN IN</Button>}
         </div>
       </nav>
     </>
