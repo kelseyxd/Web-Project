@@ -1,11 +1,6 @@
 import React from "react";
+import "../../App.css";
 
-function Orders() {
-  return (
-    <div>
-      <text>Orders page</text>
-    </div>
-  );
+export default function Orders() {
+  return <h1 className="orders">ORDERS</h1>;
 }
-
-export default Orders;

@@ -1,11 +1,6 @@
 import React from "react";
+import '../../App.css';
 
-function Login() {
-  return (
-    <div>
-      <h1>login page</h1>
-    </div>
-  );
+export default function Login() {
+  return <h1 className='login'>LOGIN</h1>;
 }
-
-export default Login;

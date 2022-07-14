@@ -1,11 +1,6 @@
 import React from "react";
+import '../../App.css';
 
-function Registration() {
-  return (
-    <div>
-      <text>Registration  page</text>
-    </div>
-  );
+export default function Registration() {
+  return <h1 className='registration'>REGISTRATION</h1>;
 }
-
-export default Registration;

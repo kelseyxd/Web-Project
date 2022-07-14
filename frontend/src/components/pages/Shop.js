@@ -1,11 +1,6 @@
 import React from "react";
+import "../../App.css";
 
-function Shop() {
-  return (
-    <div>
-      <text>Shop page</text>
-    </div>
-  );
+export default function Shop() {
+  return <h1 className="shop">SHOP</h1>;
 }
-
-export default Shop;
