@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function MenuItem({ image, name, price }) {
   return (
@@ -6,6 +7,9 @@ function MenuItem({ image, name, price }) {
       <div style={{ backgroundImage: `url(${image})` }}> </div>
       <h1> {name} </h1>
       <p> ${price} </p>
+      <Link to="/">
+        <button> ADD TO CART </button>
+      </Link>
     </div>
   );
 }
