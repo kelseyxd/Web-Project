@@ -5,9 +5,9 @@ import CartItem from "../CartItem";
 export default function Cart() {
   const cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
   return (
-    <div className="menu">
-      <h1 className="menuTitle">Your Cart</h1>
-      <div className="menuList">
+    <div className="cart">
+      <h1 className="cartTitle">Your Cart</h1>
+      <div className="cartList">
         {cartFromLocalStorage.map((cartItem, key) => {
           return (
             <CartItem

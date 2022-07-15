@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+.cart {
+  width: 100%;
+  height: auto;
+  margin: 2%;
+}
+
+.cartTitle {
+  font-family: cursive;
+  font-size: 60px;
+  text-align: center;
+}
+
+.cartList {
+}
+
+.cartItem {
+  display: flex;
+}
+
+.cartItemInfo {
+  margin-left: 2%;
+}
+
+.cartItemInfo h1 {
+  margin-top: 0;
+  font-size: 40px;
+}
+
+.cartItemInfo p {
+  font-size: 20px;
+}
+
+.cartItemQuantity {
+  text-align: right;
+}

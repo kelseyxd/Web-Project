@@ -28,47 +28,44 @@ export default function Item() {
     }
   };
   return (
-    <Container style={{ margin: "2%" }}>
-      <Row>
-        <Col>
-          <img src={image} width="500" height="400" />
-        </Col>
-        <Col>
-          <h1>{name}</h1>
-          <p>{price}</p>
-          <Row style={{ width: "20%", justifyItems: "" }}>
-            <Button
-              variant="light"
-              style={{ marginRight: "2.5%", textAlign: "center" }}
-              onClick={() => setQuantity(quantity - 1)}
-            >
-              -
-            </Button>
-            <Button variant="light" style={{ textAlign: "center" }}>
-              {quantity}
-            </Button>
-            <Button
-              variant="light"
-              style={{ marginLeft: "2.5%", textAlign: "center" }}
-              onClick={() => setQuantity(quantity + 1)}
-            >
-              +
-            </Button>
-          </Row>
+    <div style={{ display: "flex", margin: "2%" }}>
+      <div>
+        <img src={image} width="500" height="400" />
+      </div>
+      <div style={{ marginLeft: "2%", width: "98%", position: "relative" }}>
+        <h1 style={{ marginTop: 0, fontSize: 40 }}>{name}</h1>
+        <p style={{ fontSize: 20 }}>${price}</p>
+        <div style={{ bottom: 0, position: "absolute", bottom: 0, right: 0 }}>
+          <Button
+            variant="light"
+            style={{ marginRight: "2%", textAlign: "center", width: "32%" }}
+            onClick={() => setQuantity(quantity - 1)}
+          >
+            -
+          </Button>
+          <Button variant="light" style={{ textAlign: "center", width: "32%" }}>
+            {quantity}
+          </Button>
+          <Button
+            variant="light"
+            style={{ marginLeft: "2%", textAlign: "center", width: "32%" }}
+            onClick={() => setQuantity(quantity + 1)}
+          >
+            +
+          </Button>
+          <br />
+          <br />
           <Link
             to={{
               pathname: `/cart`,
             }}
           >
-            <Button
-              style={{ marginTop: "1%", width: "20%" }}
-              onClick={addToCart}
-            >
+            <Button style={{ width: "100%" }} onClick={addToCart}>
               Add to Cart
             </Button>
           </Link>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 }
