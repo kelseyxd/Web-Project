@@ -12,8 +12,12 @@ function Home() {
   };
   return (
     <>
-      <h1>Home page</h1>
-      <button onClick={handleClick}>Buy</button>
+      <div className="home" style={{ backgroundImage: `url(${BannerImage})` }}>
+        <div className="headerContainer">
+          <h1> Pedro's Pizzeria </h1>
+          <p> PIZZA TO FIT ANY TASTE</p>
+        </div>
+      </div>
     </>
   );
 }
