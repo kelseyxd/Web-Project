@@ -7,7 +7,7 @@ function MenuItem({ image, name, price }) {
       <div style={{ backgroundImage: `url(${image})` }}> </div>
       <h1> {name} </h1>
       <p> ${price} </p>
-      <Link to="/">
+      <Link to="/cart">
         <button> ADD TO CART </button>
       </Link>
     </div>
