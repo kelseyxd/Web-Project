@@ -7,7 +7,7 @@ import Cart from "./components/pages/Cart";
 import Orders from "./components/pages/Orders";
 import Login from "./components/pages/Login";
 import Menu from "./components/pages/Menu";
-import ItemPurchase from "./components/pages/ItemPurchasePage";
+import Item from "./components/pages/Item";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -22,7 +22,7 @@ function App() {
           <Route path="/orders" component={Orders} />
           <Route path="/menu" component={Menu} />
           <Route path="/sign-in" component={Login} />
-          <Route path="/ItemPurchase" component={ItemPurchase} />
+          <Route path="/item" component={Item} />
         </Switch>
         <Footer />
       </Router>

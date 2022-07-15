@@ -2,7 +2,6 @@ import React from "react";
 import "../../App.css";
 import { useHistory, Link } from "react-router-dom";
 import Footer from "../Footer";
-import ItemPurchase from "./ItemPurchasePage";
 import BannerImage from "../../assets/bannerimg1.jpg";
 import "./Home.css";
 
