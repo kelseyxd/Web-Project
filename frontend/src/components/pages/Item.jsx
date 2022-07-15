@@ -60,7 +60,11 @@ export default function Item() {
               pathname: `/cart`,
             }}
           >
-            <Button style={{ width: "100%" }} onClick={addToCart}>
+            <Button
+              variant="light"
+              style={{ width: "100%" }}
+              onClick={addToCart}
+            >
               Add to Cart
             </Button>
           </Link>

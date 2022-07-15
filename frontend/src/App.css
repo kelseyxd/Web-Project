@@ -37,9 +37,12 @@
   }
 }
 .cart {
-  width: 100%;
+  width: 96%;
   height: auto;
-  margin: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 .cartTitle {
@@ -53,10 +56,15 @@
 
 .cartItem {
   display: flex;
+  position: relative;
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
 .cartItemInfo {
   margin-left: 2%;
+  position: inherit;
+  width: 96%;
 }
 
 .cartItemInfo h1 {
@@ -69,5 +77,19 @@
 }
 
 .cartItemQuantity {
-  text-align: right;
+  position: absolute;
+  bottom: 100px;
+  right: 0;
+}
+
+.edit-btn {
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+}
+
+.delete-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Delete from "../delete.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function CartItem({ image, name, price, quantity }) {
   return (
@@ -14,15 +16,25 @@ function CartItem({ image, name, price, quantity }) {
       <div className="cartItemInfo">
         <h1>{name}</h1>
         <p>${price}</p>
-        <p className="cartItemQuantity">x{quantity}</p>
-
-        <Link
-          to={{
-            pathname: `/cart`,
-          }}
-        >
-          <Button style={{ marginTop: "1%", width: "20%" }}>Edit</Button>
-        </Link>
+        <div className="cartItemQuantity">
+          <text>Quantity: </text>
+          <Button variant="light">{quantity}</Button>
+        </div>
+        <div className="edit-btn">
+          <Link
+            to={{
+              pathname: `/cart`,
+            }}
+          >
+            <Button variant="secondary">Edit</Button>
+          </Link>
+        </div>
+        <div className="delete-btn">
+          <Button variant="danger" className="btn-danger">
+            <text>Delete </text>
+            <img src={Delete} />
+          </Button>
+        </div>
       </div>
     </div>
   );
