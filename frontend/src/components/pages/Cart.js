@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../App.css";
 import CartItem from "../CartItem";
 import Button from "react-bootstrap/Button";
@@ -14,15 +14,30 @@ export default function Cart() {
         <div className="cartList">
           {cartFromLocalStorage.map((cartItem, key) => {
             return (
-              <CartItem
-                key={key}
-                image={cartItem.image}
-                name={cartItem.name}
-                price={cartItem.price}
-                quantity={cartItem.quantity}
-              />
+              <div>
+                <CartItem
+                  key={key}
+                  image={cartItem.image}
+                  name={cartItem.name}
+                  price={cartItem.price}
+                  quantity={cartItem.quantity}
+                />
+              </div>
             );
           })}
+        </div>
+        <div>
+          <text>
+            Total Price : $
+            {Math.round(
+              (cartFromLocalStorage.reduce(
+                (totalprice, item) => totalprice + item.price * item.quantity,
+                0
+              ) +
+                Number.EPSILON) *
+                100
+            ) / 100}
+          </text>
         </div>
       </div>
     );
