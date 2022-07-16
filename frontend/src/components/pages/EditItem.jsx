@@ -8,27 +8,22 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-let myCart = [];
+let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
 
-export default function Item() {
-  if (JSON.parse(localStorage.getItem("myCart"))) {
-    myCart = JSON.parse(localStorage.getItem("myCart"));
-  }
-  console.log(myCart);
-  const [quantity, setQuantity] = useState(0);
-
+export default function EditItem() {
   const location = useLocation();
-  const { name, image, price } = location.state;
+  const { id, name, image, price, quantity } = location.state;
+  const [quantity2, setQuantity] = useState(quantity);
 
-  const addToCart = () => {
-    if (quantity > 0 && quantity < 20) {
-      myCart.push({
+  const updateCart = () => {
+    if (quantity2 > 0 && quantity2 < 20) {
+      myCart[id] = {
         name: name,
         image: image,
         price: price,
-        quantity: quantity,
-        // itemID: myCart.length,
-      });
+        quantity: quantity2,
+      };
+      console.log(myCart);
       localStorage.setItem("myCart", JSON.stringify(myCart));
     }
   };
@@ -44,17 +39,17 @@ export default function Item() {
           <Button
             variant="light"
             style={{ marginRight: "2%", textAlign: "center", width: "32%" }}
-            onClick={() => setQuantity(quantity - 1)}
+            onClick={() => setQuantity(quantity2 - 1)}
           >
             -
           </Button>
           <Button variant="light" style={{ textAlign: "center", width: "32%" }}>
-            {quantity}
+            {quantity2}
           </Button>
           <Button
             variant="light"
             style={{ marginLeft: "2%", textAlign: "center", width: "32%" }}
-            onClick={() => setQuantity(quantity + 1)}
+            onClick={() => setQuantity(quantity2 + 1)}
           >
             +
           </Button>
@@ -68,9 +63,9 @@ export default function Item() {
             <Button
               variant="light"
               style={{ width: "100%" }}
-              onClick={addToCart}
+              onClick={updateCart}
             >
-              Add to Cart
+              Update Cart
             </Button>
           </Link>
         </div>

@@ -12,15 +12,16 @@ export default function Cart() {
       <div className="cart">
         <h1 className="cartTitle">Your Cart</h1>
         <div className="cartList">
-          {cartFromLocalStorage.map((cartItem, key) => {
+          {cartFromLocalStorage.map((cartItem, i) => {
             return (
               <div>
                 <CartItem
-                  key={key}
+                  key={i}
                   image={cartItem.image}
                   name={cartItem.name}
                   price={cartItem.price}
                   quantity={cartItem.quantity}
+                  id={i}
                 />
               </div>
             );

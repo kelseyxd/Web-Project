@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Delete from "../delete.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function CartItem({ image, name, price, quantity }) {
+function CartItem({ image, name, price, quantity, id }) {
   return (
     <div className="cartItem">
       <div>
@@ -23,12 +23,13 @@ function CartItem({ image, name, price, quantity }) {
         <div className="edit-btn">
           <Link
             to={{
-              pathname: `/item/${name}`,
+              pathname: `/edit/${id}`,
               state: {
                 name: name,
                 image: image,
                 price: price,
                 quantity: quantity,
+                id: id,
               },
             }}
           >
@@ -36,7 +37,13 @@ function CartItem({ image, name, price, quantity }) {
           </Link>
         </div>
         <div className="delete-btn">
-          <Button variant="danger" className="btn-danger">
+          <Button
+            variant="danger"
+            className="btn-danger"
+            onClick={() => {
+              console.log("delete");
+            }}
+          >
             <text>Delete </text>
             <img src={Delete} />
           </Button>
