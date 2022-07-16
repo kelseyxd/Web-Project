@@ -21,7 +21,7 @@ export default function Cart() {
                   name={cartItem.name}
                   price={cartItem.price}
                   quantity={cartItem.quantity}
-                  id={i}
+                  id={cartItem.id}
                 />
               </div>
             );

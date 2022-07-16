@@ -22,6 +22,7 @@ export default function EditItem() {
         image: image,
         price: price,
         quantity: quantity2,
+        id: id,
       };
       console.log(myCart);
       localStorage.setItem("myCart", JSON.stringify(myCart));

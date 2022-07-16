@@ -21,13 +21,20 @@ export default function Item() {
   const { name, image, price } = location.state;
 
   const addToCart = () => {
+    console.log(myCart.length);
+
+    let length = 0;
+    if (myCart.length) {
+      length = myCart.length;
+    }
+
     if (quantity > 0 && quantity < 20) {
       myCart.push({
         name: name,
         image: image,
         price: price,
         quantity: quantity,
-        // itemID: myCart.length,
+        id: length,
       });
       localStorage.setItem("myCart", JSON.stringify(myCart));
     }
