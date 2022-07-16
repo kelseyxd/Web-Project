@@ -23,7 +23,13 @@ function CartItem({ image, name, price, quantity }) {
         <div className="edit-btn">
           <Link
             to={{
-              pathname: `/cart`,
+              pathname: `/item/${name}`,
+              state: {
+                name: name,
+                image: image,
+                price: price,
+                quantity: quantity,
+              },
             }}
           >
             <Button variant="secondary">Edit</Button>
