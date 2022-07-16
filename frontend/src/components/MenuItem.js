@@ -14,7 +14,6 @@ function MenuItem({ image, name, price }) {
             name: name,
             image: image,
             price: price,
-            quantity: 0,
           },
         }}
       >

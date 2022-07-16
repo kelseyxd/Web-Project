@@ -8,9 +8,13 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
+let myCart = [];
 
 export default function Item() {
+  if (JSON.parse(localStorage.getItem("myCart"))) {
+    myCart = JSON.parse(localStorage.getItem("myCart"));
+  }
+  console.log(myCart);
   const [quantity, setQuantity] = useState(0);
 
   const location = useLocation();
