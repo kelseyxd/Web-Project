@@ -54,6 +54,15 @@
 .cartList {
 }
 
+.cartTotal {
+  text-align: right;
+  font-size: 30px;
+}
+
+.cartConfirmBtn {
+  margin-left: 1%;
+}
+
 .cartItem {
   display: flex;
   position: relative;

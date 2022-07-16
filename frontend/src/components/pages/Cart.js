@@ -26,9 +26,9 @@ export default function Cart() {
             );
           })}
         </div>
-        <div>
+        <div className="cartTotal">
           <text>
-            Total Price : $
+            Total : $
             {Math.round(
               (cartFromLocalStorage.reduce(
                 (totalprice, item) => totalprice + item.price * item.quantity,
@@ -38,6 +38,9 @@ export default function Cart() {
                 100
             ) / 100}
           </text>
+          <Button variant="success" className="cartConfirmBtn">
+            <h4>Confirm Purchase</h4>
+          </Button>
         </div>
       </div>
     );
