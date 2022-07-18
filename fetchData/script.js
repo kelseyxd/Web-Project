@@ -31,9 +31,11 @@ fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
       //MUST put + sign infront of = if not we will only be showing the last object in the array
       data1 += `<div class="card">
         <img src=${values.img} alt="img" class="images">
-        <h1 class="title">${values.name}</h1>
-        <p class="description">${values.description}</p>
-        <p class="price">${values.price}</p>
+        <p>
+          <div class="title">${values.name}</div>
+          <div class="description">${values.description}</div>
+          <div class="price">$${values.price}</div>
+        </p>
     </div>`;
     });
 
