@@ -30,9 +30,9 @@ fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
       //paste the whole card div frm indec.html
       //MUST put + sign infront of = if not we will only be showing the last object in the array
       data1 += `<div class="card">
-        <h1 class="title">${values.name}</h1>
         <img src=${values.img} alt="img" class="images">
-        <p>${values.description}</p>
+        <h1 class="title">${values.name}</h1>
+        <p class="description">${values.description}</p>
         <p class="price">${values.price}</p>
     </div>`;
     });
