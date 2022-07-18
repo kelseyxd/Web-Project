@@ -4,29 +4,52 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Delete from "../delete.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function CartItem({ image, name, price, quantity }) {
+function CartItem({ image, name, price, quantity, id }) {
   return (
-    <Container style={{ margin: "2%" }}>
-      <Row>
-        <Col>
-          <img src={image} width="500" height="400" />
-        </Col>
-        <Col>
-          <h1>{name}</h1>
-          <p>${price}</p>
-          <p>x{quantity}</p>
-
+    <div className="cartItem">
+      <div>
+        <img src={image} width="500" height="400" />
+      </div>
+      <div className="cartItemInfo">
+        <h1>{name}</h1>
+        <p>${price}</p>
+        <div className="cartItemQuantity">
+          <text>Quantity: </text>
+          <Button variant="light">{quantity}</Button>
+        </div>
+        <div className="edit-btn">
           <Link
             to={{
-              pathname: `/cart`,
+              pathname: `/edit/${id}`,
+              state: {
+                name: name,
+                image: image,
+                price: price,
+                quantity: quantity,
+                id: id,
+              },
             }}
           >
-            <Button style={{ marginTop: "1%", width: "20%" }}>Edit</Button>
+            <Button variant="secondary">Edit</Button>
           </Link>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+        <div className="delete-btn">
+          <Button
+            variant="danger"
+            className="btn-danger"
+            onClick={() => {
+              console.log("delete");
+            }}
+          >
+            <text>Delete </text>
+            <img src={Delete} />
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }
 
