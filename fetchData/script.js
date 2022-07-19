@@ -12,7 +12,7 @@ const options = {
 fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
   .then((data) => {
     //console.log(data);
-    //data is in json formate , both the key n value is in double quotes
+    //data is in json format , both the key n value is in double quotes
     //so we need to convert to object (javascript format?)
     return data.json();
   })
