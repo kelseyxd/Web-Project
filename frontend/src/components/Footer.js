@@ -8,7 +8,7 @@ function Footer() {
     <div className="footer-container">
       <section className="footer-subscription">
         <p className="footer-subscription-heading">
-          Join our newsletter to receive our best dessert deals
+          Join our newsletter to receive our best pizza deals
         </p>
         <p className="footer-subscription-text">
           You can unsubscribe at any time.
@@ -64,11 +64,11 @@ function Footer() {
         <div class="social-media-wrap">
           <div class="footer-logo">
             <Link to="/" className="social-logo">
-              DessertBar
+              PizzaChef
               <i class="fab fa-typo3" />
             </Link>
           </div>
-          <small class="website-rights">DessertBar © 2022</small>
+          <small class="website-rights">PizzaChef © 2022</small>
           <div class="social-icons">
             <Link
               class="social-icon-link facebook"

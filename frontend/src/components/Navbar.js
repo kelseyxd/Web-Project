@@ -30,7 +30,7 @@ function Navbar() {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <text style={{ fontFamily: "Times New Roman" }}>
-              DessertBar
+              PizzaChef
               <i class="fab fa-typo3" />
             </text>
           </Link>
