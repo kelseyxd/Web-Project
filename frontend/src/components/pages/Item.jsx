@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 let myCart = [];
 
 export default function Item() {
+  // if myCart in localstorage already has info inside, it will be called and added to the myCart variable created.
   if (JSON.parse(localStorage.getItem("myCart"))) {
     myCart = JSON.parse(localStorage.getItem("myCart"));
   }
@@ -36,6 +37,7 @@ export default function Item() {
         quantity: quantity,
         id: length,
       });
+      //save to local storage
       localStorage.setItem("myCart", JSON.stringify(myCart));
     }
   };
