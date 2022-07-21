@@ -1,15 +1,16 @@
 //fetch method will return promise
 //Promise is either fufilled or rejected
 //All the data in the api will be stored in data
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "fe3d63acb5msh49f482a8fb5d88ep13585cjsn2a666c1cd4d7",
-    "X-RapidAPI-Host": "pizza-and-desserts.p.rapidapi.com",
-  },
-};
+// const options = {
+//   method: "GET",
+//   headers: {
+//     "X-RapidAPI-Key": "fe3d63acb5msh49f482a8fb5d88ep13585cjsn2a666c1cd4d7",
+//     "X-RapidAPI-Host": "pizza-and-desserts.p.rapidapi.com",
+//   },
+// };
 
-fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
+// fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
+//fetch("https://fakestoreapi.com/products")
   .then((data) => {
     //console.log(data);
     //data is in json format , both the key n value is in double quotes
@@ -20,7 +21,7 @@ fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
     //completedata is the data that has been converted to object -> array of objects
     console.log(completedata);
     //access only the title
-    console.log(completedata[2].title);
+    //console.log(completedata[2].title);
     //Display onto browser
     //this means that the div with the id = "root" will have the completedata[2].title displayed
     //document.getElementById("root").innerHTML = completedata[2].title;
@@ -30,9 +31,9 @@ fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
       //paste the whole card div frm indec.html
       //MUST put + sign infront of = if not we will only be showing the last object in the array
       data1 += `<div class="card">
-        <img src=${values.img} alt="img" class="images">
+        <img src=${values.image} alt="img" class="images">
         <p>
-          <div class="title">${values.name}</div>
+          <div class="title">${values.title}</div>
           <div class="description">${values.description}</div>
           <div class="price">$${values.price}</div>
         </p>

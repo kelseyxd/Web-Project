@@ -8,15 +8,16 @@ import { Link } from "react-router-dom";
 function Menu() {
   const [menu, setMenu] = useState([]);
 
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "fe3d63acb5msh49f482a8fb5d88ep13585cjsn2a666c1cd4d7",
-      "X-RapidAPI-Host": "pizza-and-desserts.p.rapidapi.com",
-    },
-  };
+  // const options = {
+  //   method: "GET",
+  //   headers: {
+  //     "X-RapidAPI-Key": "fe3d63acb5msh49f482a8fb5d88ep13585cjsn2a666c1cd4d7",
+  //     "X-RapidAPI-Host": "pizza-and-desserts.p.rapidapi.com",
+  //   },
+  // };
 
-  fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
+  // fetch("https://pizza-and-desserts.p.rapidapi.com/pizzas", options)
+  fetch("https://fakestoreapi.com/products")
     .then((data) => {
       //console.log(data);
       //data is in json formate , both the key n value is in double quotes
@@ -37,8 +38,8 @@ function Menu() {
           return (
             <MenuItem
               key={key}
-              image={menuItem.img}
-              name={menuItem.name}
+              image={menuItem.image}
+              name={menuItem.title}
               price={menuItem.price}
             />
           );
