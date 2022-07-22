@@ -39,9 +39,18 @@ export default function Cart() {
                 100
             ) / 100}
           </text>
-          <Button variant="success" className="cartConfirmBtn">
-            <h4>Confirm Purchase</h4>
-          </Button>
+          <Link
+            to={{
+              pathname: `/menu`,
+            }}
+          >
+            <Button variant="primary" className="cartConfirmBtn">
+              <h4>Add more</h4>
+            </Button>
+            <Button variant="success" className="cartConfirmBtn">
+              <h4>Confirm Purchase</h4>
+            </Button>
+          </Link>
         </div>
       </div>
     );
