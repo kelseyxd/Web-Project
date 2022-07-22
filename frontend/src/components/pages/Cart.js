@@ -3,8 +3,10 @@ import "../../App.css";
 import CartItem from "../CartItem";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Paypal from "../PayPal";
 
 export default function Cart() {
+  let finalprice = 0;
   let cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
 
   if (cartFromLocalStorage) {
@@ -30,23 +32,37 @@ export default function Cart() {
         <div className="cartTotal">
           <text>
             Total : $
-            {Math.round(
-              (cartFromLocalStorage.reduce(
-                (totalprice, item) => totalprice + item.price * item.quantity,
-                0
-              ) +
-                Number.EPSILON) *
-                100
-            ) / 100}
+            {
+              (finalprice =
+                Math.round(
+                  (cartFromLocalStorage.reduce(
+                    (totalprice, item) =>
+                      totalprice + item.price * item.quantity,
+                    0
+                  ) +
+                    Number.EPSILON) *
+                    100
+                ) / 100)
+            }
           </text>
           <Link
             to={{
               pathname: `/menu`,
             }}
           >
-            <Button variant="dark" className="cartConfirmBtn">
+            <Button variant="dark" className="cartAddItemBtn">
               <h4>Add more</h4>
             </Button>
+          </Link>
+
+          <Link
+            to={{
+              pathname: `/payment`,
+              state: {
+                finalprice: finalprice,
+              },
+            }}
+          >
             <Button variant="success" className="cartConfirmBtn">
               <h4>Confirm Purchase</h4>
             </Button>

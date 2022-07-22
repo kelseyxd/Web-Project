@@ -9,6 +9,7 @@ import Login from "./components/pages/Login";
 import Menu from "./components/pages/Menu";
 import Item from "./components/pages/Item";
 import EditItem from "./components/pages/EditItem";
+import Payment from "./components/pages/Payment";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/sign-in" component={Login} />
           <Route path="/item" component={Item} />
           <Route path="/edit" component={EditItem} />
+          <Route path="/payment" component={Payment} />
         </Switch>
         <Footer />
       </Router>
