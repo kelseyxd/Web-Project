@@ -44,7 +44,7 @@ export default function Cart() {
               pathname: `/menu`,
             }}
           >
-            <Button variant="primary" className="cartConfirmBtn">
+            <Button variant="dark" className="cartConfirmBtn">
               <h4>Add more</h4>
             </Button>
             <Button variant="success" className="cartConfirmBtn">

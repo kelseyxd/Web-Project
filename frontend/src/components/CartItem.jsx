@@ -34,7 +34,7 @@ function CartItem({ image, name, price, quantity, id }) {
               },
             }}
           >
-            <Button variant="secondary">Edit</Button>
+            <Button variant="dark">Edit</Button>
           </Link>
         </div>
         <div className="delete-btn">
@@ -44,7 +44,7 @@ function CartItem({ image, name, price, quantity, id }) {
             }}
           >
             <Button
-              variant="danger"
+              variant="light"
               className="btn-danger"
               onClick={() => {
                 const index = myCart.findIndex((object) => {
