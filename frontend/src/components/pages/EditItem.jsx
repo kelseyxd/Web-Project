@@ -8,15 +8,16 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
-
 export default function EditItem() {
+  let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
   const location = useLocation();
   const { id, name, image, price, quantity } = location.state;
   const [quantity2, setQuantity] = useState(quantity);
 
   const updateCart = () => {
     if (quantity2 > 0 && quantity2 < 20) {
+      console.log(id);
+      console.log(myCart[id]);
       myCart[id] = {
         name: name,
         image: image,

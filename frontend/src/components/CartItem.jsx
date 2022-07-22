@@ -8,6 +8,7 @@ import Delete from "../delete.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function CartItem({ image, name, price, quantity, id }) {
+  let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
   return (
     <div className="cartItem">
       <div>
@@ -33,20 +34,36 @@ function CartItem({ image, name, price, quantity, id }) {
               },
             }}
           >
-            <Button variant="secondary">Edit</Button>
+            <Button variant="light">Edit</Button>
           </Link>
         </div>
         <div className="delete-btn">
-          <Button
-            variant="danger"
-            className="btn-danger"
-            onClick={() => {
-              console.log("delete");
+          <Link
+            to={{
+              pathname: `/cart`,
             }}
           >
-            <text>Delete </text>
-            <img src={Delete} />
-          </Button>
+            <Button
+              variant="light"
+              className="btn-danger"
+              onClick={() => {
+                const index = myCart.findIndex((object) => {
+                  return object.id === id;
+                });
+                if (index > -1) {
+                  myCart.splice(index, 1);
+                }
+                if (myCart.length === 0) {
+                  localStorage.removeItem("myCart");
+                } else {
+                  localStorage.setItem("myCart", JSON.stringify(myCart));
+                }
+              }}
+            >
+              <text>Delete </text>
+              <img src={Delete} />
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import Menu from "./components/pages/Menu";
 import Item from "./components/pages/Item";
 import EditItem from "./components/pages/EditItem";
+import Payment from "./components/pages/Payment";
 
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -35,6 +36,7 @@ function App() {
           </AuthProvider>
           <Route path="/item" component={Item} />
           <Route path="/edit" component={EditItem} />
+          <Route path="/payment" component={Payment} />
         </Switch>
         <Footer />
       </Router>

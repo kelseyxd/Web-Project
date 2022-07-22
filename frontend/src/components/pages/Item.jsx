@@ -22,7 +22,7 @@ export default function Item() {
   const { name, image, price } = location.state;
 
   const addToCart = () => {
-    console.log(myCart.length);
+    // console.log(myCart.length);
 
     let length = 0;
     if (myCart.length) {
