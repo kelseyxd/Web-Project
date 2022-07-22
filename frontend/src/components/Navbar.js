@@ -1,14 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { Button2 } from "./Button2";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Navbar.css";
+import { useAuth } from "../contexts/AuthContext";
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const { currentUser, logout } = useAuth();
+  const [error, setError] = useState("");
+  const { history } = useHistory();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  async function handleLogout() {
+    try {
+      await logout();
+      closeMobileMenu();
+      history.push("/login");
+    } catch {}
+  }
+
+  // async function handleLogout() {
+  //   setError("");
+
+  //   try {
+  //     await logout();
+  //     history.push("/login");
+  //   } catch {
+  //     setError("Failed to log out");
+  //   }
+  // }
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -62,17 +85,41 @@ function Navbar() {
                 Orders
               </Link>
             </li>
-            <li>
-              <Link
-                to="/sign-in"
-                className="nav-links-mobile"
-                onClick={closeMobileMenu}
-              >
-                Sign in
-              </Link>
-            </li>
+            {currentUser ? (
+              <li>
+                <Link
+                  to="/"
+                  className="nav-links-mobile"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  to="/login"
+                  className="nav-links-mobile"
+                  onClick={closeMobileMenu}
+                >
+                  Log In
+                </Link>
+              </li>
+            )}
           </ul>
-          {button && <Button2 buttonStyle="btn--medium">SIGN IN</Button2>}
+          <div className="navBarButton">
+            {button ? (
+              currentUser ? (
+                <Button2 buttonStyle="btn--login" onClick={handleLogout}>
+                  Log Out
+                </Button2>
+              ) : (
+                <Button2 buttonStyle="btn--login">Log In</Button2>
+              )
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </nav>
     </>
