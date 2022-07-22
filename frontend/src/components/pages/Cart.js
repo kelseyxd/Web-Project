@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
+  let cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
 
   if (cartFromLocalStorage) {
     return (
@@ -55,7 +55,7 @@ export default function Cart() {
           }}
         >
           <Button variant="link">
-            <h4>Browse our menu to add some desserts</h4>
+            <h4>Browse our menu to add items to cart!</h4>
           </Button>
         </Link>
       </div>
