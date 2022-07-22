@@ -13,10 +13,9 @@ function Paypal(props) {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: "Sturdy study desk",
                 amount: {
                   currency_code: "SGD",
-                  value: 0.01,
+                  value: props.finalprice,
                 },
               },
             ],

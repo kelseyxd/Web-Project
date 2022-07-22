@@ -12,7 +12,7 @@ function Payment() {
         <div className="payment-total">
           <text>Total: ${finalprice}</text>
         </div>
-        <Paypal className="paypal" />
+        <Paypal finalprice={finalprice} className="paypal" />
       </div>
     </div>
   );
