@@ -34,7 +34,7 @@ function CartItem({ image, name, price, quantity, id }) {
               },
             }}
           >
-            <Button variant="dark">Edit</Button>
+            <Button variant="light">Edit</Button>
           </Link>
         </div>
         <div className="delete-btn">
