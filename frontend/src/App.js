@@ -31,7 +31,7 @@ function App() {
           <Route path="/menu" component={Menu} />
           <AuthProvider>
             <Route path="/sign-up" component={Signup} />
-            <Route path="/login" component={Login} />
+            <Route path="/sign-in" component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
           </AuthProvider>
           <Route path="/item" component={Item} />
