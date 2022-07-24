@@ -35,7 +35,7 @@ export default function ForgotPassword() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Password Reset</h2>
+          <h2 className="pageHeader">Password Reset</h2>
           {/* if thr is an error and ... */}
           {/* display the error message that u have previously set using serError (useState), as an alert */}
           {/* diff variant will give u diff colour of alert */}
@@ -48,7 +48,7 @@ export default function ForgotPassword() {
               {/* ref is to get the value when you submit the form */}
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} type="submit">
               Reset Password
             </Button>
           </Form>

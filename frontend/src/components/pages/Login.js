@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import "./Login.css";
 
 export default function Login() {
   const emailRef = useRef();
@@ -32,7 +33,7 @@ export default function Login() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Sign in</h2>
+          <h2 className="pageHeader">Sign In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             {/* form group */}
@@ -45,16 +46,18 @@ export default function Login() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="Loginbutton" type="submit">
               Login
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Forgot Password</Link>
+            <Link to="/forgot-password" className="loginLink">
+              Forgot Password
+            </Link>
           </div>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
+      <div className="linkToSignUp">
         Don't have an account? <Link to="/sign-up">Sign Up</Link>
       </div>
     </>

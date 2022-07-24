@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+    
+}
+
+input {
+    text-align: left;
+}
+
+.form-control{
+    display:block;
+    max-width:500px;
+    min-width:400px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:.375rem .75rem;
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.5;
+    color:#212529;
+    background-color:#fff;
+    background-clip:padding-box;
+    border:1px solid #ced4da;
+
+}
+
+
+#email {
+
+    font-family: "Lato", sans-serif;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+  }
+
+#password  {
+
+    font-family: "Lato", sans-serif;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.w-101 {
+
+    margin-top: 30px;
+}
+
+.linkToSignUp {
+
+    margin-bottom: 30px;
+}
+
+.loginLink {
+    line-height: 30px;
+}
+
+.pageHeader {
+    margin-top: 30px;
+    font-family: "Lato", sans-serif;
+    font-weight: bold
+}
