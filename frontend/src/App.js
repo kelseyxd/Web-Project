@@ -33,10 +33,10 @@ function App() {
             <Route path="/sign-up" component={Signup} />
             <Route path="/sign-in" component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
+            <Route path="/item" component={Item} />
+            <Route path="/edit" component={EditItem} />
+            <Route path="/payment" component={Payment} />
           </AuthProvider>
-          <Route path="/item" component={Item} />
-          <Route path="/edit" component={EditItem} />
-          <Route path="/payment" component={Payment} />
         </Switch>
         <Footer />
       </Router>
