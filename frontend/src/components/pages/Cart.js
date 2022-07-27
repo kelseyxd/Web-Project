@@ -4,86 +4,138 @@ import CartItem from "../CartItem";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Paypal from "../PayPal";
+import { db } from "../../firebase";
+import {
+  collection,
+  getDocs,
+  doc,
+  deleteDoc,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Cart() {
-  let finalprice = 0;
-  let cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
+  const [cartArray, setCartArray] = useState([]);
+  const { currentUser } = useAuth();
+  const cartRef = collection(db, "Cart");
 
-  if (cartFromLocalStorage) {
-    return (
-      <div className="cart">
-        <h1 className="cartTitle">Your Cart</h1>
-        <div className="cartList">
-          {cartFromLocalStorage.map((cartItem, i) => {
-            return (
-              <div>
-                <CartItem
-                  key={i}
-                  image={cartItem.image}
-                  name={cartItem.name}
-                  price={cartItem.price}
-                  quantity={cartItem.quantity}
-                  id={cartItem.id}
-                />
-              </div>
-            );
-          })}
+  if (currentUser) {
+    //query
+    let q;
+    console.log(currentUser.email);
+    if (currentUser) {
+      q = query(cartRef, where("email", "==", currentUser.email));
+    } else {
+      q = query(cartRef, where("email", "==", ""));
+    }
+
+    // MUST use onSnapshot so that whatever changes u make to the database (delete, edit etc) will be reflected on the website immediately.
+    onSnapshot(q, (data) => {
+      setCartArray(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    });
+
+    // useEffect(() => {
+    //   const getCart = async () => {
+    //     const data = await getDocs(q);
+    //     //Adding another field: id to the items in the array. And reassinging the array item's id to be the document id in firebase
+    //     setCartArray(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    //   };
+
+    //   getCart();
+    // }, []);
+
+    let finalprice = 0;
+    // let cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
+    console.log(cartArray);
+
+    if (cartArray) {
+      return (
+        <div className="cart">
+          <h1 className="cartTitle">Your Cart</h1>
+          <div className="cartList">
+            {cartArray.map((cartItem, i) => {
+              return (
+                <div>
+                  <CartItem
+                    key={i}
+                    image={cartItem.image}
+                    name={cartItem.name}
+                    price={cartItem.price}
+                    quantity={cartItem.quantity}
+                    id={cartItem.id}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div className="cartTotal">
+            <text>
+              Total : $
+              {
+                (finalprice =
+                  Math.round(
+                    (cartArray.reduce(
+                      (totalprice, item) =>
+                        totalprice + item.price * item.quantity,
+                      0
+                    ) +
+                      Number.EPSILON) *
+                      100
+                  ) / 100)
+              }
+            </text>
+            <Link
+              to={{
+                pathname: `/menu`,
+              }}
+            >
+              <Button variant="dark" className="cartAddItemBtn">
+                <h4>Continue Shopping</h4>
+              </Button>
+            </Link>
+
+            <Link
+              to={{
+                pathname: `/payment`,
+                state: {
+                  finalprice: finalprice,
+                },
+              }}
+            >
+              <Button variant="success" className="cartConfirmBtn">
+                <h4>Checkout</h4>
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="cartTotal">
-          <text>
-            Total : $
-            {
-              (finalprice =
-                Math.round(
-                  (cartFromLocalStorage.reduce(
-                    (totalprice, item) =>
-                      totalprice + item.price * item.quantity,
-                    0
-                  ) +
-                    Number.EPSILON) *
-                    100
-                ) / 100)
-            }
-          </text>
+      );
+    } else {
+      return (
+        <div className="emptyCart">
+          <h1 className="emptyCartTitle">No items in Cart!</h1>
           <Link
             to={{
               pathname: `/menu`,
             }}
           >
-            <Button variant="dark" className="cartAddItemBtn">
-              <h4>Add more</h4>
-            </Button>
-          </Link>
-
-          <Link
-            to={{
-              pathname: `/payment`,
-              state: {
-                finalprice: finalprice,
-              },
-            }}
-          >
-            <Button variant="success" className="cartConfirmBtn">
-              <h4>Confirm Purchase</h4>
+            <Button variant="link">
+              <h4>Browse our menu to add items to cart!</h4>
             </Button>
           </Link>
         </div>
-      </div>
-    );
+      );
+    }
   } else {
     return (
-      <div className="emptyCart">
-        <h1 className="emptyCartTitle">No items in Cart!</h1>
-        <Link
-          to={{
-            pathname: `/menu`,
-          }}
-        >
-          <Button variant="link">
-            <h4>Browse our menu to add items to cart!</h4>
-          </Button>
-        </Link>
-      </div>
+      <>
+        <div>
+          <p>
+            Please <Link to="/sign-in">Sign In</Link> to view your cart!
+          </p>
+        </div>
+      </>
     );
   }
 }

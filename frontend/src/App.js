@@ -25,11 +25,11 @@ function App() {
           <Navbar />
         </AuthProvider>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/orders" component={Orders} />
-          <Route path="/menu" component={Menu} />
           <AuthProvider>
+            <Route path="/" exact component={Home} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/orders" component={Orders} />
+            <Route path="/menu" component={Menu} />
             <Route path="/sign-up" component={Signup} />
             <Route path="/sign-in" component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />

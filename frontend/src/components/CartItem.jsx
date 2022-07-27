@@ -6,9 +6,19 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Delete from "../delete.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { db } from "../firebase";
+import {
+  collection,
+  getDocs,
+  doc,
+  deleteDoc,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
 
 function CartItem({ image, name, price, quantity, id }) {
-  let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
+  // let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
   return (
     <div className="cartItem">
       <div>
@@ -17,6 +27,7 @@ function CartItem({ image, name, price, quantity, id }) {
       <div className="cartItemInfo">
         <h1>{name}</h1>
         <p>${price}</p>
+        {/* <p>{id}</p> */}
         <div className="cartItemQuantity">
           <text>Quantity: </text>
           <Button variant="light">{quantity}</Button>
@@ -47,17 +58,23 @@ function CartItem({ image, name, price, quantity, id }) {
               variant="light"
               className="btn-danger"
               onClick={() => {
-                const index = myCart.findIndex((object) => {
-                  return object.id === id;
-                });
-                if (index > -1) {
-                  myCart.splice(index, 1);
-                }
-                if (myCart.length === 0) {
-                  localStorage.removeItem("myCart");
-                } else {
-                  localStorage.setItem("myCart", JSON.stringify(myCart));
-                }
+                // const index = myCart.findIndex((object) => {
+                //   return object.id === id;
+                // });
+                // if (index > -1) {
+                //   //remove the item frm array
+                //   myCart.splice(index, 1);
+                // }
+                // if (myCart.length === 0) {
+                //   //removes the whole cart frm local storage
+                //   localStorage.removeItem("myCart");
+                // } else {
+                //   //push the whole cart back into local sotagre
+                //   localStorage.setItem("myCart", JSON.stringify(myCart));
+                // }
+                  const docToDelete = doc(db, "Cart", id);
+                  deleteDoc(docToDelete);
+                  // window.location.reload();
               }}
             >
               <text>Delete </text>

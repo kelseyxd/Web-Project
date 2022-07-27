@@ -7,26 +7,44 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import {
+  collection,
+  getDocs,
+  doc,
+  updateDoc,
+  deleteDoc,
+  query,
+  where,
+} from "firebase/firestore";
+import { db } from "../../firebase";
 
 export default function EditItem() {
-  let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
+  // let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
   const location = useLocation();
   const { id, name, image, price, quantity } = location.state;
   const [quantity2, setQuantity] = useState(quantity);
+  const cartRef = collection(db, "Cart");
 
   const updateCart = () => {
     if (quantity2 > 0 && quantity2 < 20) {
+
       console.log(id);
-      console.log(myCart[id]);
-      myCart[id] = {
-        name: name,
-        image: image,
-        price: price,
-        quantity: quantity2,
-        id: id,
-      };
-      console.log(myCart);
-      localStorage.setItem("myCart", JSON.stringify(myCart));
+      const docToupdate = doc(db, "Cart", id);
+      //first param (doc to be updated) //2nd param - new data
+      updateDoc(docToupdate, {
+        quantity: quantity2
+      })
+
+      // console.log(myCart[id]);
+      // myCart[id] = {
+      //   name: name,
+      //   image: image,
+      //   price: price,
+      //   quantity: quantity2,
+      //   id: id,
+      // };
+      // console.log(myCart);
+      // localStorage.setItem("myCart", JSON.stringify(myCart));
     }
   };
   return (
