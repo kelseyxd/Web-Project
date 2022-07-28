@@ -24,7 +24,7 @@ export default function Cart() {
   if (currentUser) {
     //query
     let q;
-    console.log(currentUser.email);
+    //console.log(currentUser.email);
     if (currentUser) {
       q = query(cartRef, where("email", "==", currentUser.email));
     } else {
@@ -32,6 +32,7 @@ export default function Cart() {
     }
 
     // MUST use onSnapshot so that whatever changes u make to the database (delete, edit etc) will be reflected on the website immediately.
+    //Get the doc n it will be stored in data aftwards u can use it to setCartArray
     onSnapshot(q, (data) => {
       setCartArray(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
@@ -48,7 +49,7 @@ export default function Cart() {
 
     let finalprice = 0;
     // let cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
-    console.log(cartArray);
+    //console.log(cartArray);
 
     if (cartArray) {
       return (
@@ -101,6 +102,7 @@ export default function Cart() {
                 pathname: `/payment`,
                 state: {
                   finalprice: finalprice,
+                  item: cartArray,
                 },
               }}
             >
