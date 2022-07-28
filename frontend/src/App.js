@@ -16,6 +16,7 @@ import Payment from "./components/pages/Payment";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import Confirmation from "./components/pages/Confirmation";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/item" component={Item} />
             <Route path="/edit" component={EditItem} />
             <Route path="/payment" component={Payment} />
+            <Route path="/confirmation" component={Confirmation} />
           </AuthProvider>
         </Switch>
         <Footer />
