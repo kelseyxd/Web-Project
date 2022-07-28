@@ -28,7 +28,7 @@ function Menu() {
       setMenu(completedata);
     });
 
-  console.log(menu);
+  //console.log(menu);
 
   return (
     <div className="menu">

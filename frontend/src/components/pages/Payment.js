@@ -5,7 +5,7 @@ import { useLocation, Link } from "react-router-dom";
 
 function Payment() {
   const location = useLocation();
-  const { finalprice } = location.state;
+  const { finalprice, item } = location.state;
 
   return (
     <div className="payment">
@@ -13,7 +13,7 @@ function Payment() {
         <div className="payment-total">
           <text>Total: ${finalprice}</text>
         </div>
-        <Paypal finalprice={finalprice} className="paypal" />
+        <Paypal finalprice={finalprice} item={item} className="paypal" />
       </div>
     </div>
   );

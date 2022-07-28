@@ -1,7 +1,18 @@
 import React, { useEffect, useRef } from "react";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase";
+import { useAuth } from "../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
+import CartItem from "./CartItem";
 
 function Paypal(props) {
   const paypal = useRef();
+  const { currentUser } = useAuth();
+  const history = useHistory();
+  const orderRef = collection(db, "Order");
+
+  //console.log(props.item);
+
   useEffect(() => {
     // default implementation for every paypal implementation
     // window is the DOM
@@ -24,6 +35,20 @@ function Paypal(props) {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           console.log(order);
+
+          {
+            props.item.map((orderItem, key) => {
+              addDoc(orderRef, {
+                name: orderItem.name,
+                price: orderItem.price,
+                quantity: orderItem.quantity,
+                email: currentUser.email,
+                orderID: order.id,
+              });
+            });
+          }
+
+          history.push("/confirmation");
         },
         onError: (err) => {
           console.log(err);
