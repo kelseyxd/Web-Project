@@ -47,9 +47,15 @@ function Paypal(props) {
               });
             });
           }
-
-          history.push("/confirmation");
+          history.push({
+            pathname: "/confirmation",
+            state: {
+              // location state
+              orderID: order.id,
+            },
+          });
         },
+
         onError: (err) => {
           console.log(err);
         },
