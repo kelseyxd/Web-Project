@@ -49,11 +49,13 @@ function Paypal(props) {
           });
 
           {
-            //props.item is passed frm Cart.js
+            console.log(props.item);
+            //props.item is passed frm Cart.js as cartArray to payment.js as item bfr passing it to paypal.js as props.item
             props.item.map((orderItem, key) => {
               addDoc(orderRef, {
                 name: orderItem.name,
                 price: orderItem.price,
+                image: orderItem.image,
                 quantity: orderItem.quantity,
                 email: currentUser.email,
                 orderID: order.id,

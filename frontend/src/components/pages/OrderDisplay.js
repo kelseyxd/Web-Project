@@ -38,6 +38,7 @@ export default function OrderDisplay() {
             <ProductItem
               key={key}
               orderID={productItem.OrderID}
+              image={productItem.image}
               name={productItem.name}
               price={productItem.price}
               quantity={productItem.quantity}
