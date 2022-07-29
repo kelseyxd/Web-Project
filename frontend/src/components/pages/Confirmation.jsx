@@ -7,7 +7,7 @@ function Confirmation() {
   const location = useLocation();
 
   //extracting the orderID passed in frm paypal
-  console.log(location.state.orderID)  // for location state
+  //console.log(location.state.orderID)  // for location state
 
   return (
     <div>

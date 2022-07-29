@@ -31,12 +31,14 @@ export default function Cart() {
       q = query(cartRef, where("email", "==", ""));
     }
 
+    //console.log(q);
     // MUST use onSnapshot so that whatever changes u make to the database (delete, edit etc) will be reflected on the website immediately.
     //Get the doc n it will be stored in data aftwards u can use it to setCartArray
     onSnapshot(q, (data) => {
       setCartArray(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
 
+    //console.log(cartArray);
     // useEffect(() => {
     //   const getCart = async () => {
     //     const data = await getDocs(q);

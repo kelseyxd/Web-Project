@@ -10,6 +10,7 @@ function Paypal(props) {
   const { currentUser } = useAuth();
   const history = useHistory();
   const orderRef = collection(db, "Order");
+  const orderDetailsRef = collection(db, "Order Details");
 
   //console.log(props.item);
 
@@ -34,9 +35,21 @@ function Paypal(props) {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
-          console.log(order);
+          // console.log(order);
+
+          // console.log(order.create_time);
+          // console.log(order.id);
+          // console.log("amount: $", order.purchase_units[0].amount.value);
+
+          addDoc(orderDetailsRef, {
+            Date: order.create_time,
+            OrderID: order.id,
+            Price: order.purchase_units[0].amount.value,
+            email: currentUser.email,
+          });
 
           {
+            //props.item is passed frm Cart.js
             props.item.map((orderItem, key) => {
               addDoc(orderRef, {
                 name: orderItem.name,
