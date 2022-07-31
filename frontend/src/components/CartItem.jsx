@@ -22,7 +22,7 @@ function CartItem({ image, name, price, quantity, id }) {
   return (
     <div className="cartItem">
       <div>
-        <img src={image} width="500" height="400" />
+        <img src={image} width="300" height="300" />
       </div>
       <div className="cartItemInfo">
         <h1>{name}</h1>
@@ -72,9 +72,9 @@ function CartItem({ image, name, price, quantity, id }) {
                 //   //push the whole cart back into local sotagre
                 //   localStorage.setItem("myCart", JSON.stringify(myCart));
                 // }
-                  const docToDelete = doc(db, "Cart", id);
-                  deleteDoc(docToDelete);
-                  // window.location.reload();
+                const docToDelete = doc(db, "Cart", id);
+                deleteDoc(docToDelete);
+                // window.location.reload();
               }}
             >
               <text>Delete </text>

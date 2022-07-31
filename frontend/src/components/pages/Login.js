@@ -30,7 +30,7 @@ export default function Login() {
   }
 
   return (
-    <>
+    <div className="signin-container">
       <Card>
         <Card.Body>
           <h2 className="pageHeader">Sign In</h2>
@@ -60,6 +60,6 @@ export default function Login() {
       <div className="linkToSignUp">
         Don't have an account? <Link to="/sign-up">Sign Up</Link>
       </div>
-    </>
+    </div>
   );
 }

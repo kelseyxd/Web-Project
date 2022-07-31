@@ -56,7 +56,7 @@ export default function Cart() {
     if (cartArray) {
       return (
         <div className="cart">
-          <h1 className="cartTitle">Your Cart</h1>
+          <h1 className="cartTitle">Cart</h1>
           <div className="cartList">
             {cartArray.map((cartItem, i) => {
               return (
@@ -134,7 +134,7 @@ export default function Cart() {
   } else {
     return (
       <>
-        <div>
+        <div className="please-sign-in">
           <p>
             Please <Link to="/sign-in">Sign In</Link> to view your cart!
           </p>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../App.css";
+import "./Order.css";
 import { db } from "../../firebase";
 import OrderItem from "../OrderItem";
 import {
@@ -41,7 +42,9 @@ export default function Orders() {
     if (orderDetail) {
       return (
         <div className="order">
-          <h1>My Order</h1>
+          <h1>My Orders</h1>
+          <hr />
+
           <div className="orderList">
             {orderDetail.map((orderItem, key) => {
               return (

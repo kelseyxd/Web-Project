@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../../App.css";
+// import "../../App.css";
+import styles from "./Item.module.css";
 import Desserts from "../../data.json";
 import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -17,37 +18,11 @@ import { Alert } from "react-bootstrap";
 let myCart = [];
 
 export default function Item() {
-  // if myCart in localstorage already has items inside then i will extract it out and put it inside the myCart array
-  // if (JSON.parse(localStorage.getItem("myCart"))) {
-  //   myCart = JSON.parse(localStorage.getItem("myCart"));
-  // }
-  // console.log(myCart);
   const [quantity, setQuantity] = useState(0);
 
   const location = useLocation();
   const { name, image, price } = location.state;
 
-  // const addToCart = () => {
-  //   // console.log(myCart.length);
-
-  //   let length = 0;
-  //   if (myCart.length) {
-  //     length = myCart.length;
-  //   }
-
-  //   if (quantity > 0 && quantity < 20) {
-  //     //push to array(myCart)
-  //     myCart.push({
-  //       name: name,
-  //       image: image,
-  //       price: price,
-  //       quantity: quantity,
-  //       id: length,
-  //     });
-  //     //save cart to local storage
-  //     localStorage.setItem("myCart", JSON.stringify(myCart));
-  //   }
-  // };
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -76,16 +51,16 @@ export default function Item() {
   };
 
   return (
-    <div style={{ display: "flex", margin: "2%" }}> 
-      <div>
-        <img src={image} width="500" height="400" />
+    <div className={styles.container}>
+      <div className={styles.containerCol1}>
+        <img src={image} className={styles.imgStyle} />
       </div>
-      <div style={{ marginLeft: "2%", width: "98%", position: "relative" }}>
-        <h1 style={{ marginTop: 0, fontSize: 40 }}>{name}</h1>
-        <p style={{ fontSize: 20 }}>${price}</p>
-        <div style={{ bottom: 0, position: "absolute", bottom: 0, right: 0 }}>
-        {error && <Alert variant="danger">{error}</Alert>}
-        {success && <Alert variant="danger">{success}</Alert>}
+      <div className={styles.containerCol2}>
+        <h1 className={styles.itemName}>{name}</h1>
+        <p className={styles.itemPrice}>${price}</p>
+        <div className={styles.addToCartBtn}>
+          {error && <Alert variant="danger">{error}</Alert>}
+          {success && <Alert variant="danger">{success}</Alert>}
           <Button
             variant="light"
             style={{ marginRight: "2%", textAlign: "center", width: "32%" }}
@@ -106,42 +81,33 @@ export default function Item() {
           <br />
           <br />
 
-{currentUser ? (
-          <>
-           {/* <Alert variant="danger">{success}</Alert> */}
-          <Link
-            to={{
-              pathname: `/cart`,
-            }}
-          >
-            <Button
-              variant="light"
-              style={{ width: "100%" }}
-              onClick={addToCart}
-            >
-              Add to Cart
-            </Button>
-          </Link>
-          </>
-          ) : (<>
-        
-            {/* <Link
-            to={{
-              pathname: `/sign-in`,
-            }}
-          > */}
-            <Button
-              variant="light"
-              style={{ width: "100%" }}
-              onClick={addToCart}
-            >
-              Add to Cart
-            </Button>
-          {/* </Link> */}
-          </>
+          {currentUser ? (
+            <>
+              <Link
+                to={{
+                  pathname: `/cart`,
+                }}
+              >
+                <Button
+                  variant="light"
+                  style={{ width: "100%" }}
+                  onClick={addToCart}
+                >
+                  Add to Cart
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="light"
+                style={{ width: "100%" }}
+                onClick={addToCart}
+              >
+                Add to Cart
+              </Button>
+            </>
           )}
-
-          
         </div>
       </div>
     </div>
