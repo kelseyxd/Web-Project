@@ -95,7 +95,7 @@ export default function Cart() {
               }}
             >
               <Button variant="dark" className="cartAddItemBtn">
-                <h4>Continue Shopping</h4>
+                <h4 style={{ fontSize: "20px" }}>Continue Shopping</h4>
               </Button>
             </Link>
 
@@ -109,7 +109,7 @@ export default function Cart() {
               }}
             >
               <Button variant="success" className="cartConfirmBtn">
-                <h4>Checkout</h4>
+                <h4 style={{ fontSize: "20px" }}>Checkout</h4>
               </Button>
             </Link>
           </div>

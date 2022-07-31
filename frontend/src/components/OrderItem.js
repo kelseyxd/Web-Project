@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./OrderItem.css";
 
 function OrderItem({ OrderID, Price, Date }) {
   return (
-    <div>
+    <div className="order-item-view">
+      <p>{Date}</p>
       <Link
         to={{
           pathname: `/OrderDisplay/${OrderID}`,
@@ -12,11 +14,9 @@ function OrderItem({ OrderID, Price, Date }) {
           },
         }}
       >
-        <h4>Order ID: {OrderID}</h4>
+        <p>{OrderID}</p>
       </Link>
-
-      <p>Date : {Date}</p>
-      <p>Total: ${Price}</p>
+      <p>${Price}</p>
     </div>
   );
 }

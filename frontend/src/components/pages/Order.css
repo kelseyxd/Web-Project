@@ -2,3 +2,14 @@
   margin: 5%;
   font-family: "Times New Roman", Times, serif;
 }
+
+.order-view {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+}
+
+.order-view-title {
+  /* margin-right: 20%; */
+}

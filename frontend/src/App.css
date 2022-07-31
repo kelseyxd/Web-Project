@@ -67,6 +67,8 @@
   margin-left: 1%;
 }
 
+/* cart item */
+
 .cartItem {
   display: flex;
   position: relative;
@@ -83,6 +85,7 @@
 .cartItemInfo h1 {
   margin-top: 0;
   font-family: "Times New Roman", Times, serif;
+  font-size: 35px;
 }
 
 .cartItemInfo p {

@@ -44,6 +44,14 @@ export default function Orders() {
         <div className="order">
           <h1>My Orders</h1>
           <hr />
+          <div className="order-view">
+            <p className="order-view-title">DATE</p>
+            <p className="order-view-title" style={{ marginLeft: "10%" }}>
+              ORDER ID
+            </p>
+            <p className="order-view-title">TOTAL</p>
+          </div>
+          <hr />
 
           <div className="orderList">
             {orderDetail.map((orderItem, key) => {
