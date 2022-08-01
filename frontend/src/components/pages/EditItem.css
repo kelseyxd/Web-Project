@@ -1,5 +1,5 @@
 .edit-item-container {
-  margin: 20px;
+  display: flex;
 }
 
 .edit-img-container {
@@ -7,6 +7,50 @@
 }
 
 .edit-item-img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
+}
+
+.edit-item-header {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.edit-item-price {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}
+
+@media only screen and (min-width: 320px) {
+  .edit-item-container1 {
+    width: 100%;
+  }
+  .edit-item-container2 {
+    width: 100%;
+  }
+  .edit-item-container {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .edit-item-btns {
+    width: 50%;
+  }
+  .edit-item-qty-btn {
+    flex-direction: row;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .edit-item-container1 {
+    width: 30%;
+    margin-right: 10%;
+  }
+  .edit-item-container2 {
+    width: 70%;
+  }
+  .edit-item-container {
+    display: flex;
+    flex-direction: row;
+  }
 }
