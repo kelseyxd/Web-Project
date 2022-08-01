@@ -11,6 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 import ProductItem from "../ProductItem";
+import { textAlign } from "@mui/system";
 
 export default function OrderDisplay() {
   const location = useLocation();
@@ -30,7 +31,7 @@ export default function OrderDisplay() {
 
   return (
     <div className="order">
-      <h1 style={{ fontSize: "18px" }}>ORDER #{OrderID}</h1>
+      <h1 style={{ fontSize: "18px", textAlign: "left" }}>ORDER #{OrderID}</h1>
       <hr />
       <div className="order-view">
         <p>PRODUCTS</p>

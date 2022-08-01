@@ -45,10 +45,13 @@
     margin-top: 25px;
   }
   
-  .menuItem h1,
-  .menuItem p {
+  .menuItem h1{
     margin-left: 20px;
     margin-top: 15px;
+    font-size: 18px;
+  }
+  .menuItem p {
+    margin-top: -15px;
   }
   
   @media only screen and (max-width: 1300px) {

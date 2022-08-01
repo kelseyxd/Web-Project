@@ -12,7 +12,7 @@
 
 .headerContainer {
   width: auto;
-  margin-left: 50px;
+  margin: auto;
 }
 
 .headerContainer h1 {
@@ -45,6 +45,8 @@
   color: white;
   text-decoration: none;
   font-size: 15px;
+  margin: auto;
+  width: 50%;
 }
 
 /* Button will change when your mouse hover over it */
@@ -58,9 +60,6 @@
   .home {
     justify-content: center;
     align-items: center;
-  }
-  .headerContainer h1,
-  .headerContainer p {
   }
 
   .headerContainer {

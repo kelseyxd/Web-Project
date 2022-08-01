@@ -22,7 +22,7 @@ function MenuItem({ image, name, price }) {
           },
         }}
       >
-        <button id="buttonStyle2" style={{ fontSize: "12px" }}>
+        <button id="buttonStyle2" style={{ fontSize: "10px" }}>
           {" "}
           ADD TO CART{" "}
         </button>

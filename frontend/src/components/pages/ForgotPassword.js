@@ -54,7 +54,7 @@ export default function ForgotPassword() {
               style={{ width: "100px", height: "35px" }}
               id="buttonStyle2"
             >
-              Reset Password
+              Reset
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
