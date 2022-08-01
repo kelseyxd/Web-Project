@@ -20,6 +20,7 @@ export default function Cart() {
   const [cartArray, setCartArray] = useState([]);
   const { currentUser } = useAuth();
   const cartRef = collection(db, "Cart");
+  const [getId, setGetId] = useState([]);
 
   if (currentUser) {
     //query

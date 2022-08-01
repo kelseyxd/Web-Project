@@ -2,7 +2,7 @@ import React from "react";
 import "../../App.css";
 import { useHistory, Link } from "react-router-dom";
 import Footer from "../Footer";
-import BannerImage from "../../assets/pizza.jpg";
+import BannerImage from "../../assets/home.jpeg";
 import "./Home.css";
 
 function Home() {
@@ -15,10 +15,10 @@ function Home() {
     <>
       <div className="home" style={{ backgroundImage: `url(${BannerImage})` }}>
         <div className="headerContainer">
-          <h1> PizzaChef </h1>
-          <p> PIZZA TO FIT ANY TASTE</p>
+          <h1> Shoffíe </h1>
+          {/* <p>Constantly Meeting All Your Needs</p> */}
           <Link to="/menu">
-            <button> ORDER NOW </button>
+            <button id="buttonStyle"> SHOP NOW </button>
           </Link>
         </div>
       </div>

@@ -19,11 +19,12 @@
 .headerContainer h1 {
   justify-content: center;
   align-items: center;
-  font-size: 90px;
+  font-size: 80px;
   height: 60px;
   font-weight: 50;
-  color: lightgray;
-  margin-bottom: 40px;
+  color: #aacac2;
+  margin-bottom: 35px;
+  text-shadow: 2px 2px black;
 }
 
 .headerContainer p {
@@ -33,22 +34,23 @@
   color: lightgray;
 }
 
-.headerContainer button {
+#buttonStyle {
   color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   justify-content: center;
-  background-color: #121619;
-  height: 50px;
-  width: 180px;
+  background-color: #aacac2f3;
+  height: 35px;
+  width: 130px;
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
 }
 
-.headerContainer button:hover {
-  background-color: #07090a;
+/* Button will change when your mouse hover over it */
+#buttonStyle:hover {
+  background-color: black;
   cursor: pointer;
   transition: 0.3s ease-in;
 }
@@ -86,14 +88,4 @@
     color: white;
   }
 
-  .headerContainer button {
-    background-color: white;
-    color: #121619;
-    margin-bottom: 30px;
-  }
-
-  .headerContainer button:hover {
-    background-color: rgb(225, 225, 225);
-    color: #121619;
-  }
 }

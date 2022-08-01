@@ -11,6 +11,7 @@ function Paypal(props) {
   const history = useHistory();
   const orderRef = collection(db, "Order");
   const orderDetailsRef = collection(db, "Order Details");
+  const cartRef = collection(db, "Cart");
 
   //console.log(props.item);
 
@@ -62,12 +63,24 @@ function Paypal(props) {
               });
             });
           }
+
           history.push({
             pathname: "/confirmation",
             state: {
               // location state
               orderID: order.id,
             },
+          });
+
+          //remove items in cart
+          const q = query(
+            collection(db, "Cart"),
+            where("email", "==", currentUser.email)
+          );
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id);
           });
         },
 

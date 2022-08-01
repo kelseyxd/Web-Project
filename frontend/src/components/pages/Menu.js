@@ -32,7 +32,7 @@ function Menu() {
 
   return (
     <div className="menu">
-      <h1 className="menuTitle">Menu</h1>
+      <h1 id="pageHeader">Products</h1>
       <div className="menuList">
         {menu.map((menuItem, key) => {
           return (

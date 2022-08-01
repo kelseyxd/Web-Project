@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./MenuItem.css";
 
 function MenuItem({ image, name, price }) {
   return (
     <div className="menuItem">
-      <div style={{ backgroundImage: `url(${image})` }}> </div>
+      <div
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+      ></div>
       <h1> {name} </h1>
       <p> ${price} </p>
       <Link
@@ -17,7 +22,10 @@ function MenuItem({ image, name, price }) {
           },
         }}
       >
-        <button> ADD TO CART </button>
+        <button id="buttonStyle2" style={{ fontSize: "12px" }}>
+          {" "}
+          ADD TO CART{" "}
+        </button>
       </Link>
     </div>
   );

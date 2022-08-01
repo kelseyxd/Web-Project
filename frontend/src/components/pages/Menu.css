@@ -38,15 +38,17 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:contain;
+    margin-top: 25px;
   }
   
   .menuItem h1,
   .menuItem p {
     margin-left: 20px;
+    margin-top: 15px;
   }
   
   @media only screen and (max-width: 1300px) {

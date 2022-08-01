@@ -48,17 +48,27 @@ export default function ForgotPassword() {
               {/* ref is to get the value when you submit the form */}
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
-            <Button disabled={loading} type="submit">
+            <Button
+              disabled={loading}
+              type="submit"
+              style={{ width: "100px", height: "35px" }}
+              id="buttonStyle2"
+            >
               Reset Password
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/sign-in">Login</Link>
+            <Link to="/sign-in" id="linkStyle">
+              Login
+            </Link>
           </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Don't have an account? <Link to="/sign-up">Sign Up</Link>
+        Don't have an account?{" "}
+        <Link to="/sign-up" id="linkStyle">
+          Sign Up
+        </Link>
       </div>
     </>
   );
