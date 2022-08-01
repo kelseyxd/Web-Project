@@ -23,11 +23,12 @@ p {
   cursor: pointer;
   justify-content: center;
   background-color: #198754;
-  height: 30px;
+  height: 28px;
   width: 100px;
   color: white;
   text-decoration: none;
   font-size: 15px;
+  margin-top: -20px;
 }
 #buttonStyle2:hover {
     background-color: black;
