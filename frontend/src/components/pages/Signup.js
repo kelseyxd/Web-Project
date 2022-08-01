@@ -39,7 +39,7 @@ export default function Signup() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="pageHeader">Sign Up</h2>
+          <h2 id="pageHeader">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             {/* form group */}

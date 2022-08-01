@@ -35,7 +35,7 @@ export default function ForgotPassword() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="pageHeader">Password Reset</h2>
+          <h2 id="pageHeader">Password Reset</h2>
           {/* if thr is an error and ... */}
           {/* display the error message that u have previously set using serError (useState), as an alert */}
           {/* diff variant will give u diff colour of alert */}

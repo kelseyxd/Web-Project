@@ -42,7 +42,7 @@ export default function Orders() {
     if (orderDetail) {
       return (
         <div className="order">
-          <h1>My Orders</h1>
+          <h1 style={{ fontSize: "20px" }}>My Orders</h1>
           <hr />
           <div className="order-view">
             <p className="order-view-title">DATE</p>

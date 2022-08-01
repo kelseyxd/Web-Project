@@ -57,7 +57,7 @@ export default function Cart() {
     if (cartArray) {
       return (
         <div className="cart">
-          <h1 className="cartTitle">Cart</h1>
+          <h1 id="pageHeader">Cart</h1>
           <div className="cartList">
             {cartArray.map((cartItem, i) => {
               return (

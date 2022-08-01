@@ -33,7 +33,7 @@ export default function Login() {
     <div className="signin-container">
       <Card>
         <Card.Body>
-          <h2 className="pageHeader">Sign In</h2>
+          <h2 id="pageHeader">Sign In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             {/* form group */}

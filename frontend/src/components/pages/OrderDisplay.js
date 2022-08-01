@@ -30,8 +30,15 @@ export default function OrderDisplay() {
 
   return (
     <div className="order">
-      <h1>Order ID: {OrderID}</h1>
-      <h4>Products:</h4>
+      <h1 style={{ fontSize: "20px" }}>ORDER #{OrderID}</h1>
+      <hr />
+      <div className="order-view">
+        <p>PRODUCTS</p>
+        <p>NAME</p>
+        <p style={{ marginRight: "-150px" }}>QTY</p>
+        <p>UNIT PRICE</p>
+      </div>
+      <hr />
       <div className="orderList">
         {product.map((productItem, key) => {
           return (

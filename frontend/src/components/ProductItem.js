@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 function ProductItem({ orderID, price, quantity, name, image }) {
   return (
-    <div>
-      <h5>{name}</h5>
+    <div className="order-item-view" style={{ marginTop: "30px" }}>
       <div>
-        <img src={image} width="500" height="400" />
+        <img src={image} width="100" height="100" />
       </div>
-      <p>Quantity: {quantity}</p>
-      <p>Unit Price: {price}</p>
+      <p>{name}</p>
+      <p>{quantity}</p>
+      <p>{price}</p>
     </div>
   );
 }
