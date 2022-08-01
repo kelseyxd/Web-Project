@@ -7,6 +7,8 @@ function OrderItem({ OrderID, Price, Date }) {
     <div className="order-item-view">
       <p>{Date}</p>
       <Link
+        id="linkStyle"
+        style={{ fontSize: "16px" }}
         to={{
           pathname: `/OrderDisplay/${OrderID}`,
           state: {
