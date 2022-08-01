@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import TickImage from "../../assets/tick.jpeg";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Confirmation() {
-
   const location = useLocation();
 
   //extracting the orderID passed in frm paypal
   //console.log(location.state.orderID)  // for location state
 
   return (
-    <div>
+    <div style={{ textAlign: "center", margin: "2%" }}>
       <h1>Your Order has been received</h1>
       <img src={TickImage} width="60px" />
       <p>Thank you for your purchase!</p>

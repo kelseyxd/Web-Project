@@ -18,69 +18,53 @@ import {
 } from "firebase/firestore";
 
 function CartItem({ image, name, price, quantity, id }) {
-  // let myCart = JSON.parse(localStorage.getItem("myCart")) || "";
   return (
     <div className="cartItem">
-      <div>
-        <img src={image} width="300" height="300" />
+      <div className="cart-item-img-container">
+        <img src={image} className="cart-item-img" />
       </div>
       <div className="cartItemInfo">
         <h1>{name}</h1>
         <p>${price}</p>
-        {/* <p>{id}</p> */}
-        <div className="cartItemQuantity">
-          <text>Quantity: </text>
-          <Button variant="light">{quantity}</Button>
-        </div>
-        <div className="edit-btn">
-          <Link
-            to={{
-              pathname: `/edit/${id}`,
-              state: {
-                name: name,
-                image: image,
-                price: price,
-                quantity: quantity,
-                id: id,
-              },
-            }}
-          >
-            <Button variant="light">Edit</Button>
-          </Link>
-        </div>
-        <div className="delete-btn">
-          <Link
-            to={{
-              pathname: `/cart`,
-            }}
-          >
-            <Button
-              variant="light"
-              className="btn-danger"
-              onClick={() => {
-                // const index = myCart.findIndex((object) => {
-                //   return object.id === id;
-                // });
-                // if (index > -1) {
-                //   //remove the item frm array
-                //   myCart.splice(index, 1);
-                // }
-                // if (myCart.length === 0) {
-                //   //removes the whole cart frm local storage
-                //   localStorage.removeItem("myCart");
-                // } else {
-                //   //push the whole cart back into local sotagre
-                //   localStorage.setItem("myCart", JSON.stringify(myCart));
-                // }
-                const docToDelete = doc(db, "Cart", id);
-                deleteDoc(docToDelete);
-                // window.location.reload();
+        <div className="qty-edit-delete">
+          <div className="cartItemQuantity">
+            <Button variant="light">Quantity: {quantity}</Button>
+          </div>
+          <div className="edit-btn">
+            <Link
+              to={{
+                pathname: `/edit/${id}`,
+                state: {
+                  name: name,
+                  image: image,
+                  price: price,
+                  quantity: quantity,
+                  id: id,
+                },
               }}
             >
-              <text>Delete </text>
-              <img src={Delete} />
-            </Button>
-          </Link>
+              <Button variant="light">Edit</Button>
+            </Link>
+          </div>
+          <div className="delete-btn">
+            <Link
+              to={{
+                pathname: `/cart`,
+              }}
+            >
+              <Button
+                variant="light"
+                className="btn-danger"
+                onClick={() => {
+                  const docToDelete = doc(db, "Cart", id);
+                  deleteDoc(docToDelete);
+                }}
+              >
+                <text>Delete </text>
+                <img src={Delete} />
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
