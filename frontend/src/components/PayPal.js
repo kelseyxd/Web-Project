@@ -1,5 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  doc,
+  query,
+  where,
+  onSnapshot,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
@@ -61,9 +70,11 @@ function Paypal(props) {
                 email: currentUser.email,
                 orderID: order.id,
               });
+              //delete everything in cart aft payment is made
+              const docToDelete = doc(db, "Cart", orderItem.id);
+              deleteDoc(docToDelete);
             });
           }
-
           history.push({
             pathname: "/confirmation",
             state: {
@@ -73,17 +84,28 @@ function Paypal(props) {
           });
 
           //remove items in cart
-          const q = query(
-            collection(db, "Cart"),
-            where("email", "==", currentUser.email)
-          );
-          const querySnapshot = await getDocs(q);
-          querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id);
-          });
-        },
+          // const q = query(
+          //   collection(db, "Cart"),
+          //   where("email", "==", currentUser.email)
+          // );
+          // const querySnapshot = await getDocs(q);
+          // querySnapshot.forEach((doc) => {
+          //   // doc.data() is never undefined for query doc snapshots
+          //   console.log(doc.id);
+          // });
 
+          // var deleteCart_ref = db
+          //   .collection("Cart")
+          //   .where("email", "==", currentUser.email);
+          // let batch = db.batch();
+
+          // deleteCart_ref.get().then((snapshot) => {
+          //   snapshot.docs.forEach((doc) => {
+          //     batch.delete(doc.ref);
+          //   });
+          //   return batch.commit();
+          // });
+        },
         onError: (err) => {
           console.log(err);
         },

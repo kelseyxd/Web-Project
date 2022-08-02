@@ -114,7 +114,7 @@ function Navbar() {
                   Log Out
                 </Button2>
               ) : (
-                <Button2 buttonStyle="btn--login">Log In</Button2>
+                <Button2 buttonStyle="btn--login">Login</Button2>
               )
             ) : (
               ""

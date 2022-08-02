@@ -24,9 +24,11 @@ export const Button2 = ({
       <button
         style={{
           marginTop: "-40px",
-          height: "38px",
+          height: "35px",
           marginBottom: "18px",
           fontSize: "18px",
+          paddingTop: "1px",
+          paddingBottom: "1px",
         }}
         className={`button ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}

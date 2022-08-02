@@ -8,7 +8,7 @@ function OrderItem({ OrderID, Price, Date }) {
       <p>{Date}</p>
       <Link
         id="linkStyle"
-        style={{ fontSize: "16px" }}
+        style={{ fontSize: "16px", color: "#198754" }}
         to={{
           pathname: `/OrderDisplay/${OrderID}`,
           state: {
