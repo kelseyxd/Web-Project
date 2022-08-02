@@ -39,42 +39,6 @@ export default function Cart() {
       setCartArray(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
 
-    //delete cart
-    // console.log(currentUser.email);
-    // const deleteCart = () => {
-    //   var cart_query = db
-    //     .collection("Cart")
-    //     .where("email", "==", currentUser.email);
-    //   cart_query.get().then(function (querySnapshot) {
-    //     querySnapshot.forEach(function (doc) {
-    //       doc.ref.delete();
-    //     });
-    //   });
-    //   console.log("cart_array", cart_query);
-    // };
-
-    // const deleteCart = async () => {
-    //   const doc = await this.cartRef
-    //     .where("email", "==", currentUser.email)
-    //     .get();
-    //   doc.forEach((element) => {
-    //     element.ref.delete();
-    //     console.log(`deleted: ${element.id}`);
-    //   });
-    // };
-    // deleteCart();
-
-    //console.log(cartArray);
-    // useEffect(() => {
-    //   const getCart = async () => {
-    //     const data = await getDocs(q);
-    //     //Adding another field: id to the items in the array. And reassinging the array item's id to be the document id in firebase
-    //     setCartArray(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    //   };
-
-    //   getCart();
-    // }, []);
-
     let finalprice = 0;
     // let cartFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
     //console.log(cartArray);

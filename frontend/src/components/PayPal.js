@@ -82,29 +82,6 @@ function Paypal(props) {
               orderID: order.id,
             },
           });
-
-          //remove items in cart
-          // const q = query(
-          //   collection(db, "Cart"),
-          //   where("email", "==", currentUser.email)
-          // );
-          // const querySnapshot = await getDocs(q);
-          // querySnapshot.forEach((doc) => {
-          //   // doc.data() is never undefined for query doc snapshots
-          //   console.log(doc.id);
-          // });
-
-          // var deleteCart_ref = db
-          //   .collection("Cart")
-          //   .where("email", "==", currentUser.email);
-          // let batch = db.batch();
-
-          // deleteCart_ref.get().then((snapshot) => {
-          //   snapshot.docs.forEach((doc) => {
-          //     batch.delete(doc.ref);
-          //   });
-          //   return batch.commit();
-          // });
         },
         onError: (err) => {
           console.log(err);
